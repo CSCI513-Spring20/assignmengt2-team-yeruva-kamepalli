@@ -3,7 +3,7 @@ import java.util.Observable;
 
 import javafx.scene.layout.AnchorPane;
 
-public class Ship extends Observable{
+public class Ship extends Observable{  
 int a,b;
 Point Location;
 AnchorPane root;

@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 
 import javafx.application.*;
 import javafx.scene.shape.Rectangle;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -11,19 +12,20 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 
 
-public class OceanExplorer extends Application
+
+public class OceanExplorer extends Application //it creates and places the ship in the grid
 {
-final int scale = 50;
+final int scale = 50;  //declaring scale and dimension
  final int dimension=10;
  int[][] oceanGrid=new int[10][10];
  AnchorPane root;
  
  Image shipImg;
- ImageView shipImgView;
+ ImageView shipImgView;   
  Image IslandImg;
  ImageView IslandImgView;
  ImageView Pirateshipimg1;
@@ -31,7 +33,7 @@ final int scale = 50;
  OceanMap oceanMap=new OceanMap();
  Scene scene;
  Ship ship;
- Point startingPoint;
+ Point startingPoint; //declaring initial ship coordinates
  Point piratestart1;
  Point piratestart2;
  PirateShip pirateship1;
@@ -54,12 +56,19 @@ launch(args);
 }
 
 @Override
-public void start(Stage oceanStage) throws Exception
+public void start(Stage oceanStage) throws Exception // it creates the ocean grid and reset buttons
+//it gets the pirate ship cooordinates ,island coordinates,pirate islands,ship and passes to respective functions and load the images on grid.
 {
 int count =0;
 Point IsstartingPoint = null;
    root = new AnchorPane();
-Scene scene = new Scene(root,500,500);
+   
+   Button reset = new Button("reset");
+   reset.setLayoutX(0);
+   reset.setLayoutY(500);
+   root.getChildren().add(reset);
+   
+Scene scene = new Scene(root,550,550);
 oceanStage.setScene(scene);
 oceanStage.setTitle("ColumbusGame");
 oceanStage.show();
@@ -121,6 +130,20 @@ IslandlocationXcor[count]  = 7;
 IslandlocationYcor[count]  = 3;
 OceanMap.addpirateIslands(root);
 OceanMap.addpirateIslands(root);
+
+reset.setOnAction(new EventHandler<ActionEvent>() {
+    @Override
+    public void handle(ActionEvent e) {
+        try {
+            start(oceanStage);
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+        	System.out.println(e1);
+            e1.printStackTrace();
+        }
+    }
+});
+
 shipmovement(scene);
 
 }
@@ -132,7 +155,7 @@ shipmovement(scene);
 	public int[] islandlocationsY() {
 		return IslandlocationYcor;
 	}
-public void displayShip(AnchorPane root)
+public void displayShip(AnchorPane root)  //it dispalys the ship in the grid
    {
 	
 
@@ -144,7 +167,7 @@ root.getChildren().add(shipImgView);
 
 
 }
-public void displayisland(AnchorPane root,Point IsstartPoint)
+public void displayisland(AnchorPane root,Point IsstartPoint) //it adds the islands in the grid 
 {
 
 Image IslandImage = new Image("island.jpg",50,50,true,true);
@@ -158,7 +181,7 @@ root.getChildren().add(IslandImgView);
 }
    
    
-public void loadPirateShipImage(AnchorPane root) 
+public void loadPirateShipImage(AnchorPane root) // it displays the pirateshipimage1
 {
 	
 FileInputStream fileInputStream1 = null;
@@ -178,7 +201,7 @@ FileInputStream fileInputStream1 = null;
 	
 }
 
-public void loadPirateShipImage2(AnchorPane root) 
+public void loadPirateShipImage2(AnchorPane root) // it displays the pirateshipimage2
 {
 FileInputStream fileInputStream1 = null;
     
@@ -199,7 +222,7 @@ FileInputStream fileInputStream1 = null;
 
 
    
-private void shipmovement(Scene scene)
+private void shipmovement(Scene scene)  // it changes the ship movement by giving inputs
 {
 scene.setOnKeyPressed(new EventHandler<KeyEvent>()
 {

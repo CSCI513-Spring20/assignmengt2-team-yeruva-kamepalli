@@ -4,13 +4,12 @@ import java.io.FileNotFoundException;
 import java.util.Random;
 
 
-import javafx.application.Application;
-import javafx.scene.Scene;
+
 import javafx.scene.image.Image;
 
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
+
 
 public class OceanMap  {
 

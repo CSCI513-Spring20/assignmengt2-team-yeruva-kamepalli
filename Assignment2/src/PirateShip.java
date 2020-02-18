@@ -38,21 +38,21 @@ else
 		
 		}
 	 
-	public PirateShip(OceanMap oceanMap) {
+	public PirateShip(OceanMap oceanMap) { 
 	
 	}
 	
-	public static Point getShipLocation1() 
+	public static Point getShipLocation1() //returns the 1st pirateship location
 	{
 		return new Point(A1,B1);
 	}
-	public static Point getShipLocation2() 
+	public static Point getShipLocation2() // returns the 2nd ship location
 	{  
 		return new Point(A2,B2);
 	}
 
 	@Override
-	public void update(Observable S, Object arg) {
+	public void update(Observable S, Object arg) { //overides the update method to catch ship movement
 		if(S instanceof Ship)
 		{
 			Shiploc = ((Ship)S).getShipLocation();
@@ -64,7 +64,7 @@ else
 		
 	}
 
-	private void Movement() {
+	private void Movement() { //it gets the coordinates of ship and pirate ship tries to get closer to the ship by decreasing or incresing the coordinates
 	
 		if(ship == 0)
 		{
