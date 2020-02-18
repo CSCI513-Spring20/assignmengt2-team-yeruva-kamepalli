@@ -79,8 +79,7 @@ static void addpirateIslands(AnchorPane root) { //Adding the pirate islands to t
             pirateIslandView.setY(7*scale);
       
            
-            
-            
+           
             ImageView pirateIslandView1 = new ImageView(pirateIsland);
             
             pirateIslandView.setX(7*scale);   

@@ -92,9 +92,8 @@ else
 		{
 			  if (A2 - Shiploc.x == 0) {
 		       } else if (A2- Shiploc.x < 0) {
-		           
-		    	   
-		           if (A2 < 9 && oceanGrid[A2 + 1][B2] != 1)
+		    
+		    	   if (A2 < 9 && oceanGrid[A2 + 1][B2] != 1)
 		        	   A2++;
 		       } else if (A2 > 0 && oceanGrid[A2 - 1][B2] != 1)
 		    	   A2--;
