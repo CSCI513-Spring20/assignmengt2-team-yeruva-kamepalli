@@ -82,24 +82,25 @@ ship = new Ship(startingPoint.x,startingPoint.y);
 oceanStage.setScene(scene);
 displayShip(root);
 
-for(int i =0 ;i < 2;i++)
-{
+
 	
 piratestart1 = OceanMap.getPShipLocations();
 piratestart2 = OceanMap.getPShipLoc();
 
-		pirateship1 = new PirateShip(piratestart1.x,piratestart1.y,i,oceanGrid);
+		pirateship1 = new PirateShip(piratestart1.x,piratestart1.y,0,oceanGrid);
+		ship.addObserver(pirateship1);
 		
 		oceanStage.setScene(scene);
 		loadPirateShipImage(root);
 	
-		pirateship2 = new PirateShip(piratestart2.x,piratestart2.y,i,oceanGrid);
+		pirateship2 = new PirateShip(piratestart2.x,piratestart2.y,1,oceanGrid);
+		ship.addObserver(pirateship2);
 	
 	oceanStage.setScene(scene);
 	loadPirateShipImage2(root);
 	
 
-}
+
 
 for(int i =0 ;i <11 ;i++)
 {
@@ -124,7 +125,13 @@ shipmovement(scene);
 
 }
 
-
+	public int[] islandlocationsX() { 
+		return IslandlocationXcor;
+	}
+	
+	public int[] islandlocationsY() {
+		return IslandlocationYcor;
+	}
 public void displayShip(AnchorPane root)
    {
 	

@@ -1,10 +1,12 @@
 
 
 import java.awt.Point;
+import java.util.Observable;
+import java.util.Observer;
 
 import javafx.scene.layout.AnchorPane;
 
-public class PirateShip {
+public class PirateShip implements Observer {
 	
 	static int A1;
 	 static int B1;
@@ -30,7 +32,6 @@ else
 {
 			
 			A2 = a;
-			
 			B2 = b;
 }
 		oceanGrid = 	oceangrid;
@@ -48,6 +49,24 @@ else
 	public static Point getShipLocation2() 
 	{  
 		return new Point(A2,B2);
+	}
+
+	@Override
+	public void update(Observable S, Object arg) {
+		if(S instanceof Ship)
+		{
+			Shippos = ((Ship)S).getShipLocation();
+			OceanExplorer ocean = new OceanExplorer();
+			IslocX = ocean.islandlocationsX();
+			IslocY =  ocean.islandlocationsY();
+			Movement();
+		}
+		
+	}
+
+	private void Movement() {
+		// TODO Auto-generated method stub
+		
 	}
 
 

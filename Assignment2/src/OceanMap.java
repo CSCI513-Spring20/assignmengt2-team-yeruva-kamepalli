@@ -35,9 +35,9 @@ return new Point(a,b);
 }
 else
 {
-	a=5;
-	b=5;
-	return new Point(5,5);
+	a=0;
+	b=3;
+	return new Point(0,3);
 }
 
 

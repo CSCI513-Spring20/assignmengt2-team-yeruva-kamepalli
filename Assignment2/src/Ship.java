@@ -1,7 +1,9 @@
 import java.awt.Point;
+import java.util.Observable;
+
 import javafx.scene.layout.AnchorPane;
 
-public class Ship {
+public class Ship extends Observable{
 int a,b;
 Point Location;
 AnchorPane root;
@@ -36,10 +38,13 @@ public void movedown(int[] IslandlocationXcor,int[] IslandlocationYcor) { //move
 	break;
 	}
 	}
-	if(squareempty)
+	if(squareempty) {
 	b++;
+	setChanged();
+	notifyObservers();
 	}
-	}
+	}}
+
 
 public void moveleft(int[] IslocX,int[] IslocY) //moves the ship towards the left side
 {
@@ -56,9 +61,13 @@ break;
 }
 
 }
-if(squareempty)
-a--;
-}
+if(squareempty) {
+	a--;
+setChanged();
+notifyObservers();
+
+}}
+
 }
 
 public void moveup(int[] IslandlocationXcor,int[] IslandlocationYcor) //moves the ship towards up direction
@@ -76,9 +85,12 @@ squareempty =false;
 break;
 }
 }
-if(squareempty)
+if(squareempty) {
 b--;
-}
+setChanged();
+notifyObservers();
+}}
+
 }
 public void moveright(int[] IslocX,int[] IslocY) //moves the ship towards right
 {
@@ -94,9 +106,11 @@ iscellempty =false;
 break;
 }
 }
-if(iscellempty)
+if(iscellempty) {
 a++;
-}
+setChanged();
+notifyObservers();
+}}
 }
 
 }
