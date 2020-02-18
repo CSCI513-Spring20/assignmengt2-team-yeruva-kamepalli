@@ -18,7 +18,8 @@ public Point getShipLocation() {
 
 	}
 
-public Ship(OceanMap oceanMap) {
+public Ship(OceanMap oceanMap) 
+{
 // TODO Auto-generated constructor stub
 }
 

@@ -109,6 +109,7 @@ Image IslandImage = new Image("island.jpg",50,50,true,true);
 IslandImgView= new ImageView(IslandImage);
 IslandImgView.setX(IsstartPoint.x*scale);
 IslandImgView.setY(IsstartPoint.y*scale);
+
 root.getChildren().add(IslandImgView);
 
 

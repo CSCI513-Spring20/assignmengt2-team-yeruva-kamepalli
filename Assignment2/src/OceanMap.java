@@ -46,6 +46,7 @@ static void addpirateIslands(AnchorPane root) {
 	final int scale = 50;
 	 final int dimension=10;
     FileInputStream fileInputStream1 = null;
+    
     try {
         fileInputStream1 = new FileInputStream("src/pirateIsland.png");
     } catch (FileNotFoundException e) {
