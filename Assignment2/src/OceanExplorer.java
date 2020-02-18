@@ -1,4 +1,7 @@
 import java.awt.Point;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 import javafx.application.*;
 import javafx.scene.shape.Rectangle;
 import javafx.event.EventHandler;
@@ -16,17 +19,24 @@ public class OceanExplorer extends Application
 {
 final int scale = 50;
  final int dimension=10;
- boolean[][] oceanGrid=new boolean[10][10];
+ int[][] oceanGrid=new int[10][10];
  AnchorPane root;
  
  Image shipImg;
  ImageView shipImgView;
  Image IslandImg;
  ImageView IslandImgView;
+ ImageView Pirateship1;
+ ImageView Pirateship2;
  OceanMap oceanMap=new OceanMap();
  Scene scene;
  Ship ship;
  Point startingPoint;
+ Point piratestart1;
+ Point piratestart2;
+ PirateShip pirateship1;
+ PirateShip pirateship2;
+ 
  
  int[] IslandlocationXcor = new int[15];
  int[] IslandlocationYcor = new int[15];
@@ -71,6 +81,26 @@ startingPoint = OceanMap.getShipLocation();
 ship = new Ship(startingPoint.x,startingPoint.y);
 oceanStage.setScene(scene);
 displayShip(root);
+
+for(int i =0 ;i < 2;i++)
+{
+	
+piratestart1 = OceanMap.getPShipLocations();
+piratestart2 = OceanMap.getPShipLoc();
+
+		pirateship1 = new PirateShip(piratestart1.x,piratestart1.y,i,oceanGrid);
+		
+		oceanStage.setScene(scene);
+		loadPirateShipImage(root);
+	
+		pirateship2 = new PirateShip(piratestart2.x,piratestart2.y,i,oceanGrid);
+	
+	oceanStage.setScene(scene);
+	loadPirateShipImage2(root);
+	
+
+}
+
 for(int i =0 ;i <11 ;i++)
 {
        
@@ -83,6 +113,11 @@ displayisland(root,IsstartingPoint);
 count++;
 }
 }
+IslandlocationXcor[count] = 0;
+IslandlocationYcor[count] = 0;
+count++;
+IslandlocationXcor[count]  = 7;
+IslandlocationYcor[count]  = 3;
 OceanMap.addpirateIslands(root);
 OceanMap.addpirateIslands(root);
 shipmovement(scene);
@@ -116,6 +151,45 @@ root.getChildren().add(IslandImgView);
 }
    
    
+public void loadPirateShipImage(AnchorPane root) 
+{
+	
+FileInputStream fileInputStream1 = null;
+    
+    try {
+        fileInputStream1 = new FileInputStream("src/pirateShip.png");
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    }
+    
+    Image pirateShip = new Image(fileInputStream1,50,50,true,true);
+    Pirateship1= new ImageView(pirateShip); 
+    Pirateship1.setX(piratestart1.x*scale);
+    Pirateship1.setY(piratestart1.y*scale);
+	root.getChildren().add(Pirateship1); 
+
+	
+}
+
+public void loadPirateShipImage2(AnchorPane root) 
+{
+FileInputStream fileInputStream1 = null;
+    
+    try {
+         fileInputStream1 = new FileInputStream("src/pirateShip.png");
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    }
+    
+    Image pirateShip = new Image(fileInputStream1,50,50,true,true);
+    Pirateship2= new ImageView(pirateShip); 
+    Pirateship2.setX(piratestart2.x*scale);
+    Pirateship2.setY(piratestart2.y*scale);
+	root.getChildren().add(Pirateship2); 
+
+	
+}
+
 
    
 private void shipmovement(Scene scene)

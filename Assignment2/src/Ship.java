@@ -12,7 +12,7 @@ b = d;
 
 }
 
-public Point getShipLocation() {
+public Point getShipLocation() {    //gets the ship location
 	// TODO Auto-generated method stubss
 	return new Point(a,b);
 
@@ -23,7 +23,7 @@ public Ship(OceanMap oceanMap)
 // TODO Auto-generated constructor stub
 }
 
-public void movedown(int[] IslandlocationXcor,int[] IslandlocationYcor) {
+public void movedown(int[] IslandlocationXcor,int[] IslandlocationYcor) { //moves the ship toward down
 	// TODO Auto-generated method stub
 	Boolean squareempty = true;
 	if (b != 9)
@@ -41,7 +41,7 @@ public void movedown(int[] IslandlocationXcor,int[] IslandlocationYcor) {
 	}
 	}
 
-public void moveleft(int[] IslocX,int[] IslocY)
+public void moveleft(int[] IslocX,int[] IslocY) //moves the ship towards the left side
 {
 // TODO Auto-generated method stub
 Boolean squareempty = true;
@@ -61,11 +61,13 @@ a--;
 }
 }
 
-public void moveup(int[] IslandlocationXcor,int[] IslandlocationYcor) {
+public void moveup(int[] IslandlocationXcor,int[] IslandlocationYcor) //moves the ship towards up direction
+{
 // TODO Auto-generated method stub
 Boolean squareempty = true;
 if (b != 0)
 {
+	
 for(int i=0;i<IslandlocationYcor.length;i++)
 {
 if(IslandlocationXcor[i] != 0 && IslandlocationYcor[i] != 0 && a == IslandlocationXcor[i] && b-1 == IslandlocationYcor[i])
@@ -78,7 +80,7 @@ if(squareempty)
 b--;
 }
 }
-public void moveright(int[] IslocX,int[] IslocY)
+public void moveright(int[] IslocX,int[] IslocY) //moves the ship towards right
 {
 // TODO Auto-generated method stub
 Boolean iscellempty = true;
