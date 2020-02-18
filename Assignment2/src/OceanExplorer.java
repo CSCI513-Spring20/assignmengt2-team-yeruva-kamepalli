@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 
 
 public class OceanExplorer extends Application
@@ -82,6 +83,8 @@ displayisland(root,IsstartingPoint);
 count++;
 }
 }
+OceanMap.addpirateIslands(root);
+OceanMap.addpirateIslands(root);
 shipmovement(scene);
 
 }
@@ -119,9 +122,9 @@ private void shipmovement(Scene scene)
 scene.setOnKeyPressed(new EventHandler<KeyEvent>()
 {
 @Override
-public void handle(KeyEvent ke)
+public void handle(KeyEvent k)
 {
-switch (ke.getCode())
+switch (k.getCode())
 {
 case RIGHT:
 ship.moveright(IslandlocationXcor,IslandlocationYcor);
