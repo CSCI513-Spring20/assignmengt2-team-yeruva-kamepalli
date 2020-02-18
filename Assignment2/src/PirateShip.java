@@ -14,12 +14,12 @@ public class PirateShip implements Observer {
 	   static int A2;
 		static int B2;
 		
-		int[] IslocX;
-		int[] IslocY;
+		int[] Xloccord;
+		int[] Yloccord;
 		int[][] oceanGrid;
 	 Point currentLocation;
 	 AnchorPane root;
-	 public Point Shippos = new Point();
+	 public Point Shiploc = new Point();
 	 int ship;
 	 public PirateShip(int a, int b,int Ship,int[][] oceangrid) {
 		 ship = Ship;
@@ -55,17 +55,60 @@ else
 	public void update(Observable S, Object arg) {
 		if(S instanceof Ship)
 		{
-			Shippos = ((Ship)S).getShipLocation();
+			Shiploc = ((Ship)S).getShipLocation();
 			OceanExplorer ocean = new OceanExplorer();
-			IslocX = ocean.islandlocationsX();
-			IslocY =  ocean.islandlocationsY();
+			Xloccord = ocean.islandlocationsX();
+			Yloccord =  ocean.islandlocationsY();
 			Movement();
 		}
 		
 	}
 
 	private void Movement() {
-		// TODO Auto-generated method stub
+	
+		if(ship == 0)
+		{
+	
+		  if (A1 - Shiploc.x == 0) {
+	       } else if (A1- Shiploc.x < 0) {
+	           
+	    	   
+	           if (A1 < 9 && oceanGrid[A1 + 1][B1] != 1)
+	        	   A1++;
+	       } else if (A1 > 0 && oceanGrid[A1 - 1][B1] != 1)
+	    	   A1--;
+
+	     
+	       if (B1 - Shiploc.y == 0) {
+	       } else if (B1 - Shiploc.y < 0) {
+	           
+	           if (B1 < 9 && oceanGrid[A1][B1 + 1] != 1)
+	        	   B1++;
+	       } else if (B1 > 0 && oceanGrid[A1][B1 - 1] != 1)
+	    	   B1--;
+
+		}
+		else if(ship == 1)
+		{
+			  if (A2 - Shiploc.x == 0) {
+		       } else if (A2- Shiploc.x < 0) {
+		           
+		    	   
+		           if (A2 < 9 && oceanGrid[A2 + 1][B2] != 1)
+		        	   A2++;
+		       } else if (A2 > 0 && oceanGrid[A2 - 1][B2] != 1)
+		    	   A2--;
+
+		       
+		       if (B2 - Shiploc.y == 0) {
+		       } else if (B2 - Shiploc.y < 0) {
+		           
+		           if (B2 < 9 && oceanGrid[A2][B2 + 1] != 1)
+		        	   B2++;
+		       } else if (B2 > 0 && oceanGrid[A2][B2 - 1] != 1)
+		    	   B2--;
+		}
+		
 		
 	}
 

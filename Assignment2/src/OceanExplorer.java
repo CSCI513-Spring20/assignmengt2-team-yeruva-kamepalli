@@ -26,8 +26,8 @@ final int scale = 50;
  ImageView shipImgView;
  Image IslandImg;
  ImageView IslandImgView;
- ImageView Pirateship1;
- ImageView Pirateship2;
+ ImageView Pirateshipimg1;
+ ImageView Pirateshipimg2;
  OceanMap oceanMap=new OceanMap();
  Scene scene;
  Ship ship;
@@ -170,10 +170,10 @@ FileInputStream fileInputStream1 = null;
     }
     
     Image pirateShip = new Image(fileInputStream1,50,50,true,true);
-    Pirateship1= new ImageView(pirateShip); 
-    Pirateship1.setX(piratestart1.x*scale);
-    Pirateship1.setY(piratestart1.y*scale);
-	root.getChildren().add(Pirateship1); 
+    Pirateshipimg1= new ImageView(pirateShip); 
+    Pirateshipimg1.setX(piratestart1.x*scale);
+    Pirateshipimg1.setY(piratestart1.y*scale);
+	root.getChildren().add(Pirateshipimg1); 
 
 	
 }
@@ -189,10 +189,10 @@ FileInputStream fileInputStream1 = null;
     }
     
     Image pirateShip = new Image(fileInputStream1,50,50,true,true);
-    Pirateship2= new ImageView(pirateShip); 
-    Pirateship2.setX(piratestart2.x*scale);
-    Pirateship2.setY(piratestart2.y*scale);
-	root.getChildren().add(Pirateship2); 
+    Pirateshipimg2= new ImageView(pirateShip); 
+    Pirateshipimg2.setX(piratestart2.x*scale);
+    Pirateshipimg2.setY(piratestart2.y*scale);
+	root.getChildren().add(Pirateshipimg2); 
 
 	
 }
@@ -225,6 +225,11 @@ break;
 }
 shipImgView.setX(ship.getShipLocation().x * scale);
 shipImgView.setY(ship.getShipLocation().y * scale);
+
+Pirateshipimg1.setX(pirateship1.getShipLocation1().x * scale); // Sets the updated pirateShipImageview
+Pirateshipimg1.setY(pirateship1.getShipLocation1().y * scale);
+Pirateshipimg2.setX(pirateship1.getShipLocation2().x * scale); //// Sets the updated pirateShip2Imageview
+Pirateshipimg2.setY(pirateship1.getShipLocation2().y * scale);
 }
 });
 
